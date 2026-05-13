@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>Seikaiju – Die Chronik des Reiches</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Uncial+Antiqua&family=MedievalSharp&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: "MedievalSharp", cursive;
+      background: radial-gradient(circle at top, #111 0%, #000 70%);
+      color: #f5e6c8;
+      overflow-x: hidden;
+    }
+
+    .fog {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 100%;
+      background: linear-gradient(
+        rgba(255,255,255,0.04),
+        rgba(255,255,255,0.08),
+        rgba(255,255,255,0.04)
+      );
+      animation: fogmove 60s linear infinite;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    @keyframes fogmove {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    header, nav, main, footer {
+      position: relative;
+      z-index: 2;
+    }
+
+    header {
+      background: rgba(0,0,0,0.85);
+      padding: 30px;
+      text-align: center;
+      border-bottom: 3px solid #a88b5a;
+    }
+
+    header img {
+      max-width: 260px;
+      margin-bottom: 10px;
+      filter: drop-shadow(0 0 10px #e67e22);
+      animation: glow 3s infinite alternate;
+    }
+
+    @keyframes glow {
+      from { filter: drop-shadow(0 0 5px #e67e22); }
+      to   { filter: drop-shadow(0 0 20px #ffae42); }
+    }
+
+    header h1 {
+      font-family: "Uncial Antiqua", cursive;
+      font-size: 42px;
+      color: #e6c27a;
+      margin: 10px 0 5px 0;
+    }
+
+    nav {
+      background: rgba(30,20,10,0.9);
+      padding: 15px;
+      text-align: center;
+    }
+
+    nav a {
+      color: #e6c27a;
+      margin: 0 18px;
+      text-decoration: none;
+      font-size: 20px;
+      padding: 6px 12px;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      box-shadow: 0 0 10px rgba(230,194,122,0.6);
+    }
+
+    main {
+      max-width: 1000px;
+      margin: auto;
+      padding: 30px;
+    }
+
+    .content-box {
+      background: rgba(20,15,10,0.9);
+      padding: 25px;
+      border-radius: 12px;
+      border: 2px solid #a88b5a;
+      box-shadow: 0 0 20px rgba(168,139,90,0.2);
+    }
+
+    h2 {
+      font-family: "Uncial Antiqua", cursive;
+      color: #e6c27a;
+      text-align: center;
+    }
+
+    h3 {
+      font-family: "Uncial Antiqua", cursive;
+      color: #f0c674;
+      margin-top: 25px;
+    }
+
+    p {
+      line-height: 1.7;
+    }
+
+    footer {
+      background: rgba(0,0,0,0.8);
+      text-align: center;
+      padding: 15px;
+      margin-top: 40px;
+      font-size: 14px;
+      border-top: 3px solid #a88b5a;
+    }
+    #musicButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: linear-gradient(#f5d27a, #c89b3c);
+  border: 2px solid #a88b5a;
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-family: "Uncial Antiqua", cursive;
+  font-size: 14px;
+  cursor: pointer;
+  box-shadow: 0 0 10px rgba(230,194,122,0.6);
+  z-index: 999;
+}
+
+#musicButton:hover {
+  box-shadow: 0 0 20px rgba(255,215,120,0.9);
+}
+
+  </style>
+</head>
+<body>
+<audio id="bgmusic" loop>
+  <source src="Mittelalter hintergrund music.mp3" type="audio/mpeg">
+</audio>
+
+<button onclick="toggleMusic()" id="musicButton">🔊 Musik starten</button>
+
+<script>
+  const music = document.getElementById("bgmusic");
+  const button = document.getElementById("musicButton");
+
+  music.volume = 0.03; // Lautstärke (0.0 = leise, 1.0 = laut)
+
+  function toggleMusic() {
+    if (music.paused) {
+      music.play();
+      button.textContent = "🔇 Musik stoppen";
+    } else {
+      music.pause();
+      button.textContent = "🔊 Musik starten";
+    }
+  }
+</script>
+
+<div class="fog"></div>
+
+<header>
+  <img src="Seikaiju-Projekt.png" alt="Seikaiju Logo">
+  <h1>Seikaiju</h1>
+  <p>Die Chronik des Reiches</p>
+</header>
+
+<nav>
+  <a href="index.html">🏰 Startseite</a>
+  <a href="story.html">📜 Story</a>
+  <a href="regeln.html">⚔️ Regeln</a>
+</nav>
+
+<main>
+  <div class="content-box">
+    <h2>📜 Die Legende von Seikaiju</h2>
+
+    <p>
+      In uralten Zeiten, lange bevor Menschen ihre ersten Burgen errichteten,
+      wuchs im Herzen der Welt ein Baum von unermesslicher Macht.
+      Sein Name war <b>Seikaiju</b> – der Lebensbaum.
+      Seine Wurzeln durchzogen die Erde, seine Krone berührte den Himmel,
+      und aus seinem Saft entsprang die Magie selbst.
+    </p>
+
+    <h3>🌳 Das Zeitalter des Wachsens</h3>
+    <p>
+      Um den heiligen Baum sammelten sich Völker verschiedenster Herkunft:
+      Menschen, Zwerge, Elfen und andere Wesen, deren Namen heute nur noch
+      in vergessenen Büchern zu finden sind.
+      Sie gründeten Siedlungen, bauten Hallen aus Stein und Holz
+      und schworen, den Baum und das Land zu schützen.
+    </p>
+
+    <h3>🔥 Der Fall der Alten Reiche</h3>
+    <p>
+      Doch Macht ruft stets Neid hervor.
+      Dunkle Kräfte begehrten den Saft des Baumes,
+      um Unsterblichkeit und grenzenlose Stärke zu erlangen.
+      Kriege verwüsteten das Land, Städte fielen,
+      und viele Völker verschwanden in den Flammen der Vergangenheit.
+    </p>
+
+    <h3>🛡️ Das Zeitalter der Hüter</h3>
+    <p>
+      Aus den Trümmern entstand ein neuer Orden:
+      die <b>Hüter von Seikaiju</b>.
+      Sie errichteten Mauern, schrieben Gesetze
+      und bewahrten das Wissen der Alten.
+      Ihr Schwur lautete:
+      „Solange wir atmen, soll der Lebensbaum niemals fallen.“
+    </p>
+
+    <h3>⚔️ Die Gegenwart</h3>
+    <p>
+      Heute ruft das Reich erneut nach mutigen Seelen.
+      Abenteurer, Handwerker, Krieger und Gelehrte
+      werden gebraucht, um die Welt neu aufzubauen,
+      alte Geheimnisse zu lüften
+      und den drohenden Schatten entgegenzutreten.
+    </p>
+
+    <p>
+      Jeder Neuankömmling schreibt nun sein eigenes Kapitel
+      in der Chronik von Seikaiju.
+      Ob als Ritter, Magier, Schmied oder Händler –
+      dein Weg wird Teil der Geschichte.
+    </p>
+
+    <p style="text-align:center; margin-top:30px;">
+      <i>Willkommen im Reich von Seikaiju.  
+      Möge dein Name nicht in Vergessenheit geraten.</i>
+    </p>
+  </div>
+</main>
+
+<footer>
+  © 2026 Seikaiju – Chronik des Reiches
+</footer>
+
+</body>
+</html>
